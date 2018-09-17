@@ -1,0 +1,38 @@
+server:
+  port: 8001
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.zz.entities                     # 所有Entity别名类所在包
+  mapper-locations: classpath:mybatis/mapper/*.xml          # mapper映射文件
+    
+spring:
+   application:
+    name: microservicecloud-dept                            #注册到eureka后，显示的服务的名字 
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.sqlite.JDBC                      # SQLite驱动包
+    url: jdbc:sqlite:D:\workspace\sqlite_db\sqliteDB01.db   # 数据库名称
+    username: 
+    password: 
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+      
+eureka:                                                     #客户端注册进eureka服务端
+  client:
+    service-url:
+      defaultZone:  http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-dept-8001               #服务细节完善
+    prefer-ip-address: true                                #访问路径可现实IP地址
+    
+#对应的eureka点击某个服务的信息，也即INFO
+info:
+  app.name: microservicecloud-dept
+  company.name: zz
+  build.artifactId: ${eureka.instance.instance-id}
+  build.version: ${eureka.instance.prefer-ip-address}
+
