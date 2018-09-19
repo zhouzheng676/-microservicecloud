@@ -10,7 +10,7 @@ public class ConfigBean
 {
 
 	@Bean
-	@LoadBalanced
+	@LoadBalanced//ribbon基于NETFLIX RIBBON实现的一套 "客户端" 负载均衡工具
 	public RestTemplate restTemplate()
 	{
 		return new RestTemplate();
