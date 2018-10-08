@@ -1,0 +1,9 @@
+server:
+  port: 80
+
+#因为是集群环境，所以80的访问方式不再是找localhost:8001而是通过eureka去寻找服务（http://MICROSERVICECLOUD-DEPT） 
+eureka:
+  client:
+    register-with-eureka: false
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ 

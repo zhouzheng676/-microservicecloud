@@ -22,7 +22,7 @@ public class ConfigBean
 	@Bean
 	public IRule myRule()
 	{
-		//		return new RoundRobinRule();//轮询查询
+		//return new RoundRobinRule();//轮询查询
 		return new RandomRule();//随机查询
 	}
 }

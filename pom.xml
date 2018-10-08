@@ -89,6 +89,7 @@
 		<module>microservicecloud-eureka-7003</module>
 		<module>microservicecloud-provider-8002</module>
 		<module>microservicecloud-provider-8003</module>
+		<module>microservicecloud-dept-feign</module>
 	</modules>
 	<build>
 		<finalName>microservicecloud</finalName>
